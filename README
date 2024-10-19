@@ -1,17 +1,21 @@
 Para lograr que Bahmni interactúe con OpenHIM y que este a su vez realice las operaciones de IPS LAC y QR con los servidores, podemos estructurar el flujo de la siguiente manera:
 
-Flujo General:
+Flujo General: /// mansilla, revisa esto
 Bahmni actuará como el punto de entrada donde los usuarios pueden visualizar y gestionar los datos de los pacientes y sus International Patient Summary (IPS).
 OpenHIM será el intermediario que gestionará la validación de los datos, interacción con servidores de IPS LAC, generación y validación de QR, y finalmente, la gestión de los documentos IPS y VAC en servidores FHIR.
 Servidores externos: OpenHIM interactuará con servidores externos para realizar las operaciones de IPS, QR y certificados digitales (DVC).
 Pasos específicos:
+
+
 En Bahmni:
 
 Crear un custom display control que permita a los usuarios ver, subir y gestionar documentos IPS LAC. Este control debería enviar las solicitudes a OpenHIM.
+
 Añadir un dashboard para los usuarios que centralice las opciones de interacción con IPS, incluidos los procesos de generación de QR y validación.
+
 OpenHIM:
 
-Implementar los mediadores para las pruebas descritas (TC8-TC15):
+Implementar en mediador
 TC8 - ITI-67 Find Document Reference: OpenHIM interactuará con servidores FHIR para buscar referencias de documentos IPS LAC y IPS VAC.
 TC9 - ITI-68 Retrieve Document: OpenHIM recuperará los documentos IPS LAC y VAC del servidor FHIR.
 TC10 - Use/Consume IPS LAC: OpenHIM permitirá que Bahmni use, vea o suba documentos IPS LAC de otros países.
@@ -38,7 +42,7 @@ Template: El HTML se carga desde un archivo separado llamado ips-summary.html, q
 
 --.-.-.- aqui la parte del Mediador de Openhim
 
-Funciones específicas del mediador
+Funciones específicas del mediador  /// mansilla, revisa esto
 1. Buscar Documentos IPS (ITI-67)
 Se consulta el servidor FHIR para buscar referencias de documentos del paciente.
 Se recibe el patientId de Bahmni y se realizan las llamadas API al servidor FHIR.

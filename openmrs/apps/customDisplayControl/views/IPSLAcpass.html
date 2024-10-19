@@ -1,46 +1,38 @@
-<div class="dashboard-container">
-    <h2>International Patient Summary (IPS) Dashboard</h2>
-    
+<div class="ips-summary-container">
+    <h3>International Patient Summary (IPS)</h3>
+
     <div class="section">
-        <h3>Datos del Paciente</h3>
+        <h4>Datos del Paciente</h4>
         <p><strong>Nombre:</strong> {{patient.name}}</p>
         <p><strong>ID del Paciente:</strong> {{patient.identifier}}</p>
     </div>
 
     <div class="section">
-        <h3>Documentos IPS LAC</h3>
-        <!-- Botón para buscar referencias de documentos IPS LAC usando ITI-67 -->
+        <h4>Documentos IPS LAC</h4>
         <button ng-click="fetchIpsDocuments()">Buscar Documentos IPS</button>
-        <div ng-if="ipsDocuments">
-            <h4>Documentos Encontrados</h4>
-            <ul>
-                <li ng-repeat="document in ipsDocuments">
-                    <p><strong>Documento ID:</strong> {{document.id}}</p>
-                    <p><strong>Fecha:</strong> {{document.date}}</p>
-                    <!-- Botón para recuperar el documento IPS usando ITI-68 -->
-                    <button ng-click="retrieveIpsDocument(document.id)">Recuperar Documento</button>
-                </li>
-            </ul>
-        </div>
+        <ul ng-if="ipsDocuments">
+            <li ng-repeat="doc in ipsDocuments">
+                Documento ID: {{doc.id}} - Fecha: {{doc.date}}
+                <button ng-click="retrieveIpsDocument(doc.id)">Recuperar Documento</button>
+            </li>
+        </ul>
     </div>
 
     <div class="section">
-        <h3>Certificados de Vacunación</h3>
-        <!-- Botón para generar QR del IPS LAC usando TC11 -->
-        <button ng-click="generateQrFromIps()">Generar QR para Inmunización</button>
+        <h4>Generar QR para Inmunización</h4>
+        <button ng-click="generateQrFromIps()">Generar QR</button>
         <div ng-if="qrCode">
-            <h4>Código QR Generado</h4>
-            <img ng-src="{{qrCode}}" alt="QR Code para Inmunización">
+            <h5>Código QR Generado:</h5>
+            <img ng-src="{{qrCode}}" alt="QR Code">
         </div>
     </div>
 
     <div class="section">
-        <h3>Validar QR de Certificados de Vacunación</h3>
-        <!-- Entrada para el código QR y botón para validarlo -->
+        <h4>Validar QR</h4>
         <input type="text" ng-model="qrInput" placeholder="Ingrese el código QR">
         <button ng-click="validateQrCode()">Validar QR</button>
         <div ng-if="validationResult">
-            <h4>Resultado de Validación</h4>
+            <h5>Resultado de Validación:</h5>
             <p>{{validationResult}}</p>
         </div>
     </div>

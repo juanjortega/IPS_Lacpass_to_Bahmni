@@ -1,0 +1,35 @@
+{
+  "urn": "urn:mediator:ips_qr_mediator",
+  "version": "1.0.0",
+  "name": "IPS QR Mediator",
+  "description": "Mediador que gestiona IPS y QR para Bahmni",
+  "defaultChannelConfig": [
+    {
+      "name": "IPS QR Mediator Channel",
+      "urlPattern": "^/ips-qr-mediator$",
+      "routes": [
+        {
+          "name": "IPS QR Route",
+          "host": "localhost",
+          "path": "/",
+          "port": "3000",
+          "primary": true,
+          "type": "http"
+        }
+      ],
+      "allow": ["admin"],
+      "methods": ["GET", "POST"],
+      "type": "http"
+    }
+  ],
+  "endpoints": [
+    {
+      "name": "IPS QR Endpoint",
+      "host": "localhost",
+      "path": "/",
+      "port": "3000",
+      "primary": true,
+      "type": "http"
+    }
+  ]
+}

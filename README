@@ -21,7 +21,7 @@ TC13 y TC14 - Transform/Validate QR DVC y Use/Validate QR DVC: OpenHIM gestionar
 TC15 - Use/Consume QR DVC: OpenHIM permitirá la validación de los QR DVC de otros países.
 
 
-
+-.-.-.- aqui la parte del Custom display Control
 openmrsPatientService: Este servicio sigue gestionando la obtención de datos del paciente desde OpenMRS.
 
 ipsSummaryControl: La lógica de este display control está completamente encapsulada, incluyendo todas las interacciones con OpenHIM para obtener y manejar los datos del IPS LAC y los QR.
@@ -35,3 +35,16 @@ Validar un QR (TC13/TC14).
 spinner: Este objeto muestra una rueda de carga mientras las llamadas API a OpenHIM están en progreso.
 
 Template: El HTML se carga desde un archivo separado llamado ips-summary.html, que muestra la interfaz de usuario.
+
+--.-.-.- aqui la parte del Mediador de Openhim
+
+Funciones específicas del mediador
+1. Buscar Documentos IPS (ITI-67)
+Se consulta el servidor FHIR para buscar referencias de documentos del paciente.
+Se recibe el patientId de Bahmni y se realizan las llamadas API al servidor FHIR.
+2. Recuperar Documento IPS (ITI-68)
+Se consulta el servidor FHIR para recuperar un documento específico utilizando el documentId.
+3. Generar QR desde IPS (TC11)
+A partir de los datos del IPS, se genera un código QR que puede ser utilizado para vacunaciones y otros fines.
+4. Validar QR (TC13/TC14)
+El QR generado es validado contra el servidor correspondiente, por ejemplo, usando Gazelle. ??? no tengo idea en verdad

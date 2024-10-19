@@ -19,3 +19,19 @@ TC11 - Generate VHL QR from IPS LAC: OpenHIM generará códigos QR para la inmun
 TC12 - Retrieve VHL QR: OpenHIM permitirá recuperar un código QR generado para la inmunización del paciente.
 TC13 y TC14 - Transform/Validate QR DVC y Use/Validate QR DVC: OpenHIM gestionará la transformación y validación de certificados de vacunación digital (DVC) utilizando la verificación de la OMS.
 TC15 - Use/Consume QR DVC: OpenHIM permitirá la validación de los QR DVC de otros países.
+
+
+
+openmrsPatientService: Este servicio sigue gestionando la obtención de datos del paciente desde OpenMRS.
+
+ipsSummaryControl: La lógica de este display control está completamente encapsulada, incluyendo todas las interacciones con OpenHIM para obtener y manejar los datos del IPS LAC y los QR.
+
+ipsService: Este servicio se encarga de hacer las llamadas API a OpenHIM para:
+
+Buscar documentos IPS LAC (ITI-67).
+Recuperar un documento IPS (ITI-68).
+Generar un QR basado en IPS (TC11).
+Validar un QR (TC13/TC14).
+spinner: Este objeto muestra una rueda de carga mientras las llamadas API a OpenHIM están en progreso.
+
+Template: El HTML se carga desde un archivo separado llamado ips-summary.html, que muestra la interfaz de usuario.

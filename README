@@ -1,0 +1,21 @@
+Para lograr que Bahmni interactúe con OpenHIM y que este a su vez realice las operaciones de IPS LAC y QR con los servidores, podemos estructurar el flujo de la siguiente manera:
+
+Flujo General:
+Bahmni actuará como el punto de entrada donde los usuarios pueden visualizar y gestionar los datos de los pacientes y sus International Patient Summary (IPS).
+OpenHIM será el intermediario que gestionará la validación de los datos, interacción con servidores de IPS LAC, generación y validación de QR, y finalmente, la gestión de los documentos IPS y VAC en servidores FHIR.
+Servidores externos: OpenHIM interactuará con servidores externos para realizar las operaciones de IPS, QR y certificados digitales (DVC).
+Pasos específicos:
+En Bahmni:
+
+Crear un custom display control que permita a los usuarios ver, subir y gestionar documentos IPS LAC. Este control debería enviar las solicitudes a OpenHIM.
+Añadir un dashboard para los usuarios que centralice las opciones de interacción con IPS, incluidos los procesos de generación de QR y validación.
+OpenHIM:
+
+Implementar los mediadores para las pruebas descritas (TC8-TC15):
+TC8 - ITI-67 Find Document Reference: OpenHIM interactuará con servidores FHIR para buscar referencias de documentos IPS LAC y IPS VAC.
+TC9 - ITI-68 Retrieve Document: OpenHIM recuperará los documentos IPS LAC y VAC del servidor FHIR.
+TC10 - Use/Consume IPS LAC: OpenHIM permitirá que Bahmni use, vea o suba documentos IPS LAC de otros países.
+TC11 - Generate VHL QR from IPS LAC: OpenHIM generará códigos QR para la inmunización del paciente basándose en el IPS.
+TC12 - Retrieve VHL QR: OpenHIM permitirá recuperar un código QR generado para la inmunización del paciente.
+TC13 y TC14 - Transform/Validate QR DVC y Use/Validate QR DVC: OpenHIM gestionará la transformación y validación de certificados de vacunación digital (DVC) utilizando la verificación de la OMS.
+TC15 - Use/Consume QR DVC: OpenHIM permitirá la validación de los QR DVC de otros países.

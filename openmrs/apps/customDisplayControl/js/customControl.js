@@ -25,7 +25,7 @@ angular.module('bahmni.common.displaycontrol.custom')
                 patientUuid: '='
               },
               link: function ($scope, element, attrs) {
-                $scope.contentUrl = "/bahmni_config/openmrs/apps/clinical/custom_display_controls/ips-summary.html";
+                $scope.contentUrl = "/bahmni_config/openmrs/apps/clinical/customDisplayControl/ips-summary.html";
         
                 // Obtener datos del paciente de OpenMRS
                 openmrsPatientService.getPatient($scope.patientUuid).then(function (patientData) {

@@ -12,7 +12,7 @@ dotenv.config();
 const openhimConfig = {
   username: process.env.OPENHIM_USERNAME || 'root@openhim.org',
   password: process.env.OPENHIM_PASSWORD || '1234',
-  apiURL: process.env.OPENHIM_API_URL || 'https://54.232.153.120:8080', // URL de OpenHIM
+  apiURL: process.env.OPENHIM_API_URL || 'https://18.231.234.79:8080', // URL de OpenHIM
   trustSelfSigned: true
 };
 

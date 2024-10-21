@@ -10,9 +10,9 @@
       "routes": [
         {
           "name": "IPS QR Route",
-          "host": "localhost",
+          "host": "18.231.234.79",
           "path": "/",
-          "port": "3000",
+          "port": "5000",
           "primary": true,
           "type": "http"
         }
@@ -25,9 +25,9 @@
   "endpoints": [
     {
       "name": "IPS QR Endpoint",
-      "host": "localhost",
+      "host": "18.231.234.79",
       "path": "/",
-      "port": "3000",
+      "port": "5000",
       "primary": true,
       "type": "http"
     }
